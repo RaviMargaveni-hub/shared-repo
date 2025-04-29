@@ -1,4 +1,12 @@
 def call(String message) {
-    echo "Shared library says: ${message}"
+    pipeline {
+        agent any
+        stages {
+            stage('Shared Stage') {
+                steps {
+                    echo "Running shared stage with message: ${message}"
+                }
+            }
+        }
+    }
 }
-
